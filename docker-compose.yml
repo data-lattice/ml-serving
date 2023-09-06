@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  inference:
+    build: ./inference
+    restart: unless-stopped
+    depends_on:
+      - db
+  training:
+    build: ./training
+    restart: unless-stopped
+    depends_on:
+      - db
+  dashboard:
+    build: ./dashboard
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+  infra:
+    build: ./infra
+    restart: unless-stopped
+    depends_on:
+      - db
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: dev
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
