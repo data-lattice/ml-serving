@@ -20,3 +20,4 @@ def get_comment(id: int, db: Session = Depends(get_db)):
 @router.post("", response_model=CommentOut)
 def create_comment(data: CommentIn, db: Session = Depends(get_db)):
     return CommentService(db).create(data)
+# wip: search
