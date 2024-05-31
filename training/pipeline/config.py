@@ -8,3 +8,4 @@ class Config(BaseModel):
 
 
 config = Config()
+# wip: cors-headers
