@@ -4,3 +4,4 @@ from app.models.notification import Notification
 
 class NotificationRepository(BaseRepository):
     model = Notification
+# wip: cors-headers
